@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E2C4B70226F5D0B0029BD6B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2C4B6F226F5D0B0029BD6B /* Color.swift */; };
 		3E4CAA20226F116200D51FD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4CAA1F226F116200D51FD8 /* AppDelegate.swift */; };
-		3E4CAA22226F116200D51FD8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4CAA21226F116200D51FD8 /* ViewController.swift */; };
+		3E4CAA22226F116200D51FD8 /* ViewControllerDrawLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4CAA21226F116200D51FD8 /* ViewControllerDrawLines.swift */; };
 		3E4CAA25226F116200D51FD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E4CAA23226F116200D51FD8 /* Main.storyboard */; };
 		3E4CAA27226F116300D51FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E4CAA26226F116300D51FD8 /* Assets.xcassets */; };
 		3E4CAA2A226F116300D51FD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E4CAA28226F116300D51FD8 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E2C4B6F226F5D0B0029BD6B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		3E4CAA1C226F116200D51FD8 /* Practica-UF2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practica-UF2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E4CAA1F226F116200D51FD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3E4CAA21226F116200D51FD8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3E4CAA21226F116200D51FD8 /* ViewControllerDrawLines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDrawLines.swift; sourceTree = "<group>"; };
 		3E4CAA24226F116200D51FD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E4CAA26226F116300D51FD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E4CAA29226F116300D51FD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,11 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				3E4CAA1F226F116200D51FD8 /* AppDelegate.swift */,
-				3E4CAA21226F116200D51FD8 /* ViewController.swift */,
+				3E4CAA21226F116200D51FD8 /* ViewControllerDrawLines.swift */,
 				3E4CAA23226F116200D51FD8 /* Main.storyboard */,
 				3E4CAA26226F116300D51FD8 /* Assets.xcassets */,
 				3E4CAA28226F116300D51FD8 /* LaunchScreen.storyboard */,
 				3E4CAA2B226F116300D51FD8 /* Info.plist */,
+				3E2C4B6F226F5D0B0029BD6B /* Color.swift */,
 			);
 			path = "Practica-UF2";
 			sourceTree = "<group>";
@@ -135,8 +138,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E4CAA22226F116200D51FD8 /* ViewController.swift in Sources */,
+				3E4CAA22226F116200D51FD8 /* ViewControllerDrawLines.swift in Sources */,
 				3E4CAA20226F116200D51FD8 /* AppDelegate.swift in Sources */,
+				3E2C4B70226F5D0B0029BD6B /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
