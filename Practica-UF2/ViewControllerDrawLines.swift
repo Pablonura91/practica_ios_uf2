@@ -12,6 +12,7 @@ class ViewControllerDrawLines: UIViewController {
 
     @IBOutlet weak var drawingPlace: UIImageView!
     
+    var backgroundColor: UIColor?
     var startTouch : CGPoint?
     var secondTouch : CGPoint?
     var currentContext : CGContext?
@@ -20,6 +21,10 @@ class ViewControllerDrawLines: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let currentBackgorundColor = backgroundColor {
+            drawingPlace.backgroundColor = currentBackgorundColor
+        }
     }
     
     
