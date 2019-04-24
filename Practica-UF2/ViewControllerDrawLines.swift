@@ -12,13 +12,13 @@ class ViewControllerDrawLines: UIViewController {
 
     @IBOutlet weak var imageDrawingPlace: UIView!
     
-    var backgroundColor: UIView?
+    var backgroundColor: ColorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let currentBackgorundColor = backgroundColor {
-            imageDrawingPlace = currentBackgorundColor
+            currentBackgorundColor.createGradientLayer(viewColor: imageDrawingPlace)
         }
     }
 }
