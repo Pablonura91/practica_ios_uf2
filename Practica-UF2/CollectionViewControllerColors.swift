@@ -49,7 +49,7 @@ class CollectionViewControllerColors: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCellColor
     
-        cell.imageViewColor.backgroundColor = colors[indexPath.item]
+        createGradientLayer(color: colors[indexPath.item], viewColor: cell.imageColorView)
     
         return cell
     }
@@ -61,7 +61,8 @@ class CollectionViewControllerColors: UICollectionViewController {
             {
                 if let destinationNavigationController = segue.destination as? UINavigationController,
                     let targetController = destinationNavigationController.topViewController as? ViewControllerDrawLines {
-                        targetController.backgroundColor = colors[indexPath.row]
+                        createGradientLayer(color: colors[indexPath.row], viewColor: targetController.view)
+                        //targetController.backgroundColor = colors[indexPath.row]
                 }
             }
         }
@@ -76,5 +77,13 @@ class CollectionViewControllerColors: UICollectionViewController {
         }
     }
 
-
+    private func createGradientLayer(color: UIColor, viewColor: UIView) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = viewColor.frame
+//        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [color.cgColor, UIColor.yellow.cgColor]
+        
+        viewColor.layer.addSublayer(gradientLayer)
+    }
+    
 }

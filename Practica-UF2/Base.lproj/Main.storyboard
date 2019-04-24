@@ -66,14 +66,20 @@
                                     <rect key="frame" x="0.0" y="0.0" width="202" height="202"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aIn-Oe-yhc">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPM-1c-zUU">
                                             <rect key="frame" x="8" y="8" width="186" height="186"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
                                     </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="mPM-1c-zUU" firstAttribute="leading" secondItem="OCm-ZB-IEm" secondAttribute="leading" constant="8" id="HzT-P4-KKu"/>
+                                    <constraint firstAttribute="bottom" secondItem="mPM-1c-zUU" secondAttribute="bottom" constant="8" id="QmY-MB-ayc"/>
+                                    <constraint firstItem="mPM-1c-zUU" firstAttribute="top" secondItem="OCm-ZB-IEm" secondAttribute="top" constant="8" id="XN1-xt-QlC"/>
+                                    <constraint firstAttribute="trailing" secondItem="mPM-1c-zUU" secondAttribute="trailing" constant="8" id="Zdk-Aj-3Dl"/>
+                                </constraints>
                                 <connections>
-                                    <outlet property="imageViewColor" destination="aIn-Oe-yhc" id="bRu-Jo-eit"/>
+                                    <outlet property="imageColorView" destination="mPM-1c-zUU" id="jm7-Wb-Dgg"/>
                                     <segue destination="Z2d-ft-fKJ" kind="presentation" identifier="Color Detail Segue" id="lTp-tj-YcZ"/>
                                 </connections>
                             </collectionViewCell>
@@ -88,7 +94,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8d-ia-V5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1386" y="-689"/>
+            <point key="canvasLocation" x="-1386.9565217391305" y="-689.0625"/>
         </scene>
         <!--Color-->
         <scene sceneID="tne-QT-ifu">
@@ -98,16 +104,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eZw-ZN-GYZ">
-                                <rect key="frame" x="8" y="96" width="398" height="758"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v99-ng-L6p">
+                                <rect key="frame" x="8" y="96" width="398" height="566"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="eZw-ZN-GYZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="aPo-ON-eYL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eZw-ZN-GYZ" secondAttribute="bottom" constant="8" id="oPc-el-f8I"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eZw-ZN-GYZ" secondAttribute="trailing" constant="8" id="qau-Aa-l4I"/>
-                            <constraint firstItem="eZw-ZN-GYZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="x1x-JE-Wwu"/>
+                            <constraint firstItem="v99-ng-L6p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="GBC-Vf-NuG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="v99-ng-L6p" secondAttribute="bottom" constant="200" id="VA6-Xz-FKE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v99-ng-L6p" secondAttribute="trailing" constant="8" id="k1g-Ap-qib"/>
+                            <constraint firstItem="v99-ng-L6p" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="wl2-uL-A0P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -124,7 +131,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageViewDrawingPlace" destination="eZw-ZN-GYZ" id="ItI-Mn-IM4"/>
+                        <outlet property="imageDrawingPlace" destination="v99-ng-L6p" id="Spy-Zt-wcM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

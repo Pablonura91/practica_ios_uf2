@@ -10,5 +10,6 @@ import UIKit
 
 class CollectionViewCellColor: UICollectionViewCell {
     @IBOutlet weak var imageViewColor: UIImageView!
+    @IBOutlet weak var imageColorView: UIView!
     
 }
