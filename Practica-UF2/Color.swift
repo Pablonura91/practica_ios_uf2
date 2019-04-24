@@ -11,4 +11,7 @@ import UIKit
 class Color: UIView {
     var color: String?
     
+    func pathForLineRect()->UIBezierPath{
+        return UIBezierPath()
+    }
 }
