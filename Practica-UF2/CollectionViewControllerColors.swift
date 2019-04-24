@@ -9,11 +9,11 @@
 import UIKit
 
 class CollectionViewControllerColors: UICollectionViewController {
-    let colors = [UIColor.red, UIColor.blue, UIColor.green, UIColor.gray, UIColor.purple, UIColor.orange]
+    var colorsArr: [ColorView] = ([ColorView(colorUp: UIColor.red, colorDown: UIColor.yellow), ColorView(colorUp: UIColor.blue, colorDown: UIColor.red), ColorView(colorUp: UIColor.green, colorDown: UIColor.purple)])
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -43,13 +43,13 @@ class CollectionViewControllerColors: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return colors.count
+        return colorsArr.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCellColor
-    
-        createGradientLayer(color: colors[indexPath.item], viewColor: cell.imageColorView)
+        colorsArr[indexPath.row].createGradientLayer(viewColor: cell.imageColorView)
+//        createGradientLayer(color: colors[indexPath.item], viewColor: cell.imageColorView)
     
         return cell
     }
@@ -61,7 +61,8 @@ class CollectionViewControllerColors: UICollectionViewController {
             {
                 if let destinationNavigationController = segue.destination as? UINavigationController,
                     let targetController = destinationNavigationController.topViewController as? ViewControllerDrawLines {
-                        createGradientLayer(color: colors[indexPath.row], viewColor: targetController.view)
+                    colorsArr[indexPath.row].createGradientLayer(viewColor: targetController.view)
+//                        createGradientLayer(color: colors[indexPath.row], viewColor: targetController.view)
                         //targetController.backgroundColor = colors[indexPath.row]
                 }
             }
@@ -75,15 +76,6 @@ class CollectionViewControllerColors: UICollectionViewController {
         default:
             break
         }
-    }
-
-    private func createGradientLayer(color: UIColor, viewColor: UIView) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = viewColor.frame
-//        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [color.cgColor, UIColor.yellow.cgColor]
-        
-        viewColor.layer.addSublayer(gradientLayer)
     }
     
 }

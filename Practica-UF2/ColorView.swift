@@ -8,14 +8,20 @@
 
 import UIKit
 
-class Color: UIView {
-    var color: Array<UIColor>?
+class ColorView {
+    var colorsArr: [UIColor]?
     
-    private func createGradientLayer(color: UIColor, viewColor: UIView) {
+    init(colorUp: UIColor, colorDown: UIColor) {
+        colorsArr = [UIColor]()
+        colorsArr?.append(colorUp)
+        colorsArr?.append(colorDown)
+    }
+    
+    func createGradientLayer(viewColor: UIView) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = viewColor.frame
         //        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [color.cgColor, UIColor.yellow.cgColor]
+        gradientLayer.colors = [colorsArr![0].cgColor, colorsArr![1].cgColor]
         
         viewColor.layer.addSublayer(gradientLayer)
     }
