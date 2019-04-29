@@ -9,7 +9,7 @@
 import UIKit
 
 class CollectionViewControllerColors: UICollectionViewController {
-    var colorsArr: [ColorView] = ([ColorView(colorUp: UIColor.red, colorDown: UIColor.yellow), ColorView(colorUp: UIColor.blue, colorDown: UIColor.red), ColorView(colorUp: UIColor.green, colorDown: UIColor.purple)])
+    var colorsArr: [ColorView] = ([ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))])
     
     override func viewDidLoad() {
         super.viewDidLoad()

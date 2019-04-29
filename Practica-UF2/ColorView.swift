@@ -8,20 +8,34 @@
 
 import UIKit
 
-class ColorView {
-    var colorsArr: [UIColor]?
+class ColorView: UIView {
+    var colorsGradient: [UIColor]?
     
-    init(colorUp: UIColor, colorDown: UIColor) {
-        colorsArr = [UIColor]()
-        colorsArr?.append(colorUp)
-        colorsArr?.append(colorDown)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        asincColor()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        asincColor()
+    }
+    
+    private func asincColor(){
+        colorsGradient = [UIColor]()
+        colorsGradient?.append(UIColor(displayP3Red: colorRandom(), green: colorRandom(), blue: colorRandom(), alpha: 1))
+        colorsGradient?.append(UIColor(displayP3Red: colorRandom(), green: colorRandom(), blue: colorRandom(), alpha: 1))
+    }
+    
+    private func colorRandom() -> CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
     }
     
     func createGradientLayer(viewColor: UIView) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = viewColor.frame
         //        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [colorsArr![0].cgColor, colorsArr![1].cgColor]
+        gradientLayer.colors = [colorsGradient![0].cgColor, colorsGradient![1].cgColor]
         
         viewColor.layer.addSublayer(gradientLayer)
     }
