@@ -53,31 +53,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pt4-7g-Kw5">
-                            <size key="itemSize" width="202" height="202"/>
+                            <size key="itemSize" width="200" height="198"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="Cell" id="OCm-ZB-IEm" customClass="CollectionViewCellColor" customModule="Practica_UF2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="202" height="202"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="Cell" id="OCm-ZB-IEm" customClass="CollectionViewCellColor" customModule="Practica_UF2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="198"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="202" height="202"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="198"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPM-1c-zUU">
-                                            <rect key="frame" x="8" y="8" width="186" height="186"/>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPM-1c-zUU">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="198"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                     </subviews>
                                 </view>
-                                <constraints>
-                                    <constraint firstItem="mPM-1c-zUU" firstAttribute="leading" secondItem="OCm-ZB-IEm" secondAttribute="leading" constant="8" id="HzT-P4-KKu"/>
-                                    <constraint firstAttribute="bottom" secondItem="mPM-1c-zUU" secondAttribute="bottom" constant="8" id="QmY-MB-ayc"/>
-                                    <constraint firstItem="mPM-1c-zUU" firstAttribute="top" secondItem="OCm-ZB-IEm" secondAttribute="top" constant="8" id="XN1-xt-QlC"/>
-                                    <constraint firstAttribute="trailing" secondItem="mPM-1c-zUU" secondAttribute="trailing" constant="8" id="Zdk-Aj-3Dl"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="imageColorView" destination="mPM-1c-zUU" id="jm7-Wb-Dgg"/>
                                     <segue destination="Z2d-ft-fKJ" kind="presentation" identifier="Color Detail Segue" id="lTp-tj-YcZ"/>
@@ -104,7 +99,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v99-ng-L6p">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v99-ng-L6p" customClass="ColorView" customModule="Practica_UF2" customModuleProvider="target">
                                 <rect key="frame" x="8" y="96" width="398" height="566"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -119,14 +114,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Color" id="hK4-31-E1V">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="FU7-Tb-J3O">
+                        <barButtonItem key="leftBarButtonItem" title="Color" id="FU7-Tb-J3O">
                             <connections>
                                 <segue destination="YqG-Dh-GSR" kind="unwind" unwindAction="goBackWithSegue:" id="TIY-nP-erM"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="CRW-fY-XqQ">
-                            <connections>
-                                <segue destination="YqG-Dh-GSR" kind="unwind" unwindAction="goBackWithSegue:" id="Gwv-fG-PeV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
