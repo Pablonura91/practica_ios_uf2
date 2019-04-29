@@ -9,8 +9,8 @@
 import UIKit
 
 class ViewControllerDrawLines: UIViewController {
-
-    @IBOutlet weak var imageDrawingPlace: UIView!
+    
+    @IBOutlet weak var imageDrawingPlace: ColorView!
     
     var backgroundColor: ColorView?
     

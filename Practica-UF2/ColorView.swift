@@ -9,10 +9,15 @@
 import UIKit
 
 class ColorView: UIView {
+    @IBInspectable
     var colorsGradient: [UIColor]?
+    
+    @IBInspectable
+    var positionView: CGPoint {return CGPoint(x: bounds.midX, y: bounds.midY)}
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.center = positionView
         asincColor()
     }
     

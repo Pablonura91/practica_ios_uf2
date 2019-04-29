@@ -99,9 +99,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v99-ng-L6p" customClass="ColorView" customModule="Practica_UF2" customModuleProvider="target">
+                            <view contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="v99-ng-L6p" customClass="ColorView" customModule="Practica_UF2" customModuleProvider="target">
                                 <rect key="frame" x="8" y="96" width="398" height="566"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="positionView">
+                                        <point key="value" x="0.0" y="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -121,7 +126,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageDrawingPlace" destination="v99-ng-L6p" id="Spy-Zt-wcM"/>
+                        <outlet property="imageDrawingPlace" destination="v99-ng-L6p" id="yy4-dB-HNn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
