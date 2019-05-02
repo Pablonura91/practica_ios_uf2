@@ -13,7 +13,8 @@ class ViewControllerDrawLines: UIViewController {
     @IBOutlet weak var imageDrawingPlace: ColorView!
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
         //TODO: Crear animaciones
-        print("tapped")
+        self.view.addSubview(backgroundColor!.changeState())
+        
     }
     
     var backgroundColor: ColorView?

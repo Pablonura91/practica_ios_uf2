@@ -29,6 +29,7 @@ class ColorView: UIView {
         colorsGradient = [UIColor]()
         colorsGradient?.append(UIColor(displayP3Red: colorRandom(), green: colorRandom(), blue: colorRandom(), alpha: 1))
         colorsGradient?.append(UIColor(displayP3Red: colorRandom(), green: colorRandom(), blue: colorRandom(), alpha: 1))
+        colorsGradient?.append(UIColor(displayP3Red: colorRandom(), green: colorRandom(), blue: colorRandom(), alpha: 1))
     }
     
     private func colorRandom() -> CGFloat {
@@ -39,13 +40,22 @@ class ColorView: UIView {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = viewColor.frame
         //        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [colorsGradient![0].cgColor, colorsGradient![1].cgColor]
+        gradientLayer.colors = [colorsGradient![0].cgColor, colorsGradient![1].cgColor, colorsGradient![2].cgColor]
         
         viewColor.layer.addSublayer(gradientLayer)
     }
     
-    func detectGesture(byReactingTo pinchRecognizer: UIPinchGestureRecognizer){
-        
+    func changeState() -> UIView{
+        UIViewPropertyAnimator.runningPropertyAnimator(
+            withDuration: 10.0,
+            delay: 2.0, options: .curveEaseOut,
+            animations: {
+            self.transform = CGAffineTransform(scaleX: 10, y: 1)
+            },
+            completion: { finished in
+            print("Napkins opened!")
+        })
+        return self
     }
     
     func detectMotion(motion: UIEvent.EventSubtype){
