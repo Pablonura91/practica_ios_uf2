@@ -44,26 +44,4 @@ class ColorView: UIView {
         
         viewColor.layer.addSublayer(gradientLayer)
     }
-    
-    func changeState() -> UIView{
-        UIViewPropertyAnimator.runningPropertyAnimator(
-            withDuration: 10.0,
-            delay: 2.0, options: .curveEaseOut,
-            animations: {
-            self.transform = CGAffineTransform(scaleX: 10, y: 1)
-            },
-            completion: { finished in
-            print("Napkins opened!")
-        })
-        return self
-    }
-    
-    func detectMotion(motion: UIEvent.EventSubtype){
-        switch motion {
-        case .motionShake:
-            break
-        default:
-            break
-        }
-    }
 }

@@ -13,7 +13,15 @@ class ViewControllerDrawLines: UIViewController {
     @IBOutlet weak var imageDrawingPlace: ColorView!
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
         //TODO: Crear animaciones
-        self.view.addSubview(backgroundColor!.changeState())
+        UIViewPropertyAnimator.runningPropertyAnimator(
+            withDuration: 10.0,
+            delay: 2.0, options: .curveEaseOut,
+            animations: {
+                self.imageDrawingPlace.transform = CGAffineTransform(scaleX: -6, y: 1)
+        },
+            completion: {
+                //self.imageDrawingPlace.transform
+        })
         
     }
     
@@ -28,9 +36,11 @@ class ViewControllerDrawLines: UIViewController {
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        //TODO: Crear animaciones
-        if let currentBackgorundColor = backgroundColor {
-            currentBackgorundColor.detectMotion(motion: motion)
+        switch motion {
+        case .motionShake:
+            break
+        default:
+            break
         }
     }
 }
