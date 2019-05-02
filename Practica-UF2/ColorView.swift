@@ -44,4 +44,10 @@ class ColorView: UIView {
         
         viewColor.layer.addSublayer(gradientLayer)
     }
+    
+    func newGradientShackeMotion() -> UIView{
+        asincColor()
+        createGradientLayer(viewColor: self)
+        return self
+    }
 }

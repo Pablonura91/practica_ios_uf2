@@ -46,7 +46,31 @@ class ViewControllerDrawLines: UIViewController {
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         switch motion {
         case .motionShake:
-            break
+            UIViewPropertyAnimator.runningPropertyAnimator(
+                    withDuration: 5,
+                    delay: 0,
+                    options: UIView.AnimationOptions.curveEaseInOut,
+                    animations: {self.imageDrawingPlace.alpha = 0},
+                    completion: {
+//                        self.imageDrawingPlace.removeFromSuperview()
+                        if $0 == .end{
+                            UIViewPropertyAnimator.runningPropertyAnimator(
+                                withDuration: 5,
+                                delay: 0,
+                                options: UIView.AnimationOptions.curveEaseInOut,
+                                animations: {
+                                    self.imageDrawingPlace.alpha = 1
+                                },
+                                completion: {
+                                    if $0 == .end{
+//                                        self.backgroundColor!.newGradientShackeMotion(viewColor: self.imageDrawingPlace)
+                                    }
+                                }
+                            )
+                        }
+                    }
+            )
+            
         default:
             break
         }
