@@ -102,11 +102,15 @@
                             <view contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="v99-ng-L6p" customClass="ColorView" customModule="Practica_UF2" customModuleProvider="target">
                                 <rect key="frame" x="8" y="96" width="398" height="566"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="point" keyPath="positionView">
                                         <point key="value" x="0.0" y="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="844-HM-txP" appends="YES" id="KDl-7y-DsT"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -131,6 +135,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="YqG-Dh-GSR" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="844-HM-txP">
+                    <connections>
+                        <action selector="tap:" destination="BYZ-38-t0r" id="oYW-FV-xAU"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="468" y="-689"/>
         </scene>

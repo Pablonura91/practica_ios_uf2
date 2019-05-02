@@ -9,7 +9,6 @@
 import UIKit
 
 class ColorView: UIView {
-    @IBInspectable
     var colorsGradient: [UIColor]?
     
     @IBInspectable
@@ -43,5 +42,18 @@ class ColorView: UIView {
         gradientLayer.colors = [colorsGradient![0].cgColor, colorsGradient![1].cgColor]
         
         viewColor.layer.addSublayer(gradientLayer)
+    }
+    
+    func detectGesture(byReactingTo pinchRecognizer: UIPinchGestureRecognizer){
+        
+    }
+    
+    func detectMotion(motion: UIEvent.EventSubtype){
+        switch motion {
+        case .motionShake:
+            break
+        default:
+            break
+        }
     }
 }

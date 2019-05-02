@@ -11,6 +11,10 @@ import UIKit
 class ViewControllerDrawLines: UIViewController {
     
     @IBOutlet weak var imageDrawingPlace: ColorView!
+    @IBAction func tap(_ sender: UITapGestureRecognizer) {
+        //TODO: Crear animaciones
+        print("tapped")
+    }
     
     var backgroundColor: ColorView?
     
@@ -19,6 +23,13 @@ class ViewControllerDrawLines: UIViewController {
         
         if let currentBackgorundColor = backgroundColor {
             currentBackgorundColor.createGradientLayer(viewColor: imageDrawingPlace)
+        }
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        //TODO: Crear animaciones
+        if let currentBackgorundColor = backgroundColor {
+            currentBackgorundColor.detectMotion(motion: motion)
         }
     }
 }
