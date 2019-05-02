@@ -15,13 +15,21 @@ class ViewControllerDrawLines: UIViewController {
         //TODO: Crear animaciones
         UIViewPropertyAnimator.runningPropertyAnimator(
             withDuration: 10.0,
-            delay: 2.0, options: .curveEaseOut,
+            delay: 2.0,
+            options: .curveEaseOut,
             animations: {
                 self.imageDrawingPlace.transform = CGAffineTransform(scaleX: -6, y: 1)
         },
             completion: {
-                //self.imageDrawingPlace.transform
-        })
+                if $0 == .end{
+                    UIViewPropertyAnimator.runningPropertyAnimator(
+                        withDuration: 5,
+                        delay: 0,
+                        options: UIView.AnimationOptions.curveEaseInOut,
+                        animations: {self.imageDrawingPlace.transform = CGAffineTransform.identity},
+                        completion:nil
+                ) }
+            })
         
     }
     
