@@ -30,6 +30,7 @@ class ColorView: UIView {
         colorsGradient?.append(UIColor(displayP3Red: colorRandom(), green: colorRandom(), blue: colorRandom(), alpha: 1))
         colorsGradient?.append(UIColor(displayP3Red: colorRandom(), green: colorRandom(), blue: colorRandom(), alpha: 1))
         colorsGradient?.append(UIColor(displayP3Red: colorRandom(), green: colorRandom(), blue: colorRandom(), alpha: 1))
+        colorsGradient?.append(UIColor(displayP3Red: colorRandom(), green: colorRandom(), blue: colorRandom(), alpha: 1))
     }
     
     private func colorRandom() -> CGFloat {
@@ -40,7 +41,7 @@ class ColorView: UIView {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = viewColor.frame
         //        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [colorsGradient![0].cgColor, colorsGradient![1].cgColor, colorsGradient![2].cgColor]
+        gradientLayer.colors = [colorsGradient![0].cgColor, colorsGradient![1].cgColor, colorsGradient![2].cgColor, colorsGradient![3].cgColor]
         
         viewColor.layer.addSublayer(gradientLayer)
     }
