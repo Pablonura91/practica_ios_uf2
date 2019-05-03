@@ -14,21 +14,29 @@ class ViewControllerDrawLines: UIViewController {
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
         //TODO: Crear animaciones
         UIViewPropertyAnimator.runningPropertyAnimator(
-            withDuration: 10.0,
-            delay: 2.0,
+            withDuration: 6.0,
+            delay: 0,
             options: .curveEaseOut,
             animations: {
-                self.imageDrawingPlace.transform = CGAffineTransform(scaleX: -6, y: 1)
+                self.imageDrawingPlace.transform = CGAffineTransform(rotationAngle: 30)
         },
-            completion: {
-                if $0 == .end{
+            completion: {if $0 == .end{
                     UIViewPropertyAnimator.runningPropertyAnimator(
                         withDuration: 5,
                         delay: 0,
                         options: UIView.AnimationOptions.curveEaseInOut,
-                        animations: {self.imageDrawingPlace.transform = CGAffineTransform.identity},
-                        completion:nil
-                ) }
+                        animations: {self.imageDrawingPlace.transform = CGAffineTransform(scaleX: -6, y: -10)},
+                        completion: {
+                            if $0 == .end{
+                                UIViewPropertyAnimator.runningPropertyAnimator(
+                                    withDuration: 5,
+                                    delay: 0,
+                                    options: UIView.AnimationOptions.curveEaseInOut,
+                                    animations: {self.imageDrawingPlace.transform = CGAffineTransform.identity},
+                                    completion:nil
+                                ) }
+                    })
+                }
             })
         
     }
@@ -61,11 +69,7 @@ class ViewControllerDrawLines: UIViewController {
                                 animations: {
                                     self.imageDrawingPlace.alpha = 1
                                 },
-                                completion: {
-                                    if $0 == .end{
-//                                        self.backgroundColor!.newGradientShackeMotion(viewColor: self.imageDrawingPlace)
-                                    }
-                                }
+                                completion: nil
                             )
                         }
                     }
