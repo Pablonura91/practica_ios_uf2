@@ -14,7 +14,6 @@ class ViewControllerDrawLines: UIViewController {
     
     @IBOutlet weak var imageDrawingPlace: ColorView!
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
-        //TODO: Crear animaciones
         UIViewPropertyAnimator.runningPropertyAnimator(
             withDuration: 6.0,
             delay: 0,
@@ -76,11 +75,15 @@ class ViewControllerDrawLines: UIViewController {
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         switch motion {
         case .motionShake:
-            UIViewPropertyAnimator.runningPropertyAnimator(
+            let shakeAnimation = UIViewPropertyAnimator.runningPropertyAnimator(
                     withDuration: 5,
                     delay: 0,
                     options: UIView.AnimationOptions.curveEaseInOut,
-                    animations: {self.imageDrawingPlace.alpha = 0},
+                    animations: {
+                        self.imageDrawingPlace.center = CGPoint(x: self.imageDrawingPlace.center.x - 10, y: self.imageDrawingPlace.center.y)
+                        
+                        self.imageDrawingPlace.alpha = 0
+                    },
                     completion: {
 //                        self.imageDrawingPlace.removeFromSuperview()
                         if $0 == .end{
@@ -90,6 +93,7 @@ class ViewControllerDrawLines: UIViewController {
                                 options: UIView.AnimationOptions.curveEaseInOut,
                                 animations: {
                                     self.imageDrawingPlace.alpha = 1
+                                    self.imageDrawingPlace.center = CGPoint(x: self.imageDrawingPlace.center.x, y: self.imageDrawingPlace.center.y)
                                 },
                                 completion: nil
                             )
@@ -97,27 +101,37 @@ class ViewControllerDrawLines: UIViewController {
                     }
             )
             
+//            shakeAnimation.addAnimations {
+//                self.imageDrawingPlace.center = CGPoint(x: self.imageDrawingPlace.center.x + 20, y: self.imageDrawingPlace.center.y)
+//            }
+            
+            shakeAnimation.startAnimation()
+            
         default:
             break
         }
     }
         
     @objc func rotationGesture() {
-            UIViewPropertyAnimator.runningPropertyAnimator(
-                withDuration: 5,
-                delay: 0,
-                options: UIView.AnimationOptions.curveEaseInOut,
-                animations: {self.imageDrawingPlace.transform = CGAffineTransform(scaleX: -20, y: 10)},
-                completion: {
-                    if $0 == .end{
-                        UIViewPropertyAnimator.runningPropertyAnimator(
-                            withDuration: 5,
-                            delay: 0,
-                            options: UIView.AnimationOptions.curveEaseInOut,
-                            animations: {self.imageDrawingPlace.transform = CGAffineTransform.identity},
-                            completion:nil
-                        ) }
-            })
+        UIViewPropertyAnimator.runningPropertyAnimator(
+            withDuration: 4,
+            delay: 0,
+            options: .curveEaseOut,
+            animations: {
+                self.imageDrawingPlace.transform = CGAffineTransform(rotationAngle: CGFloat(180*Double.pi/180))
+            },
+            completion: {
+                if $0 == .end{
+                    UIViewPropertyAnimator.runningPropertyAnimator(
+                        withDuration: 3,
+                        delay: 0,
+                        options: UIView.AnimationOptions.curveEaseInOut,
+                        animations: {self.imageDrawingPlace.transform = CGAffineTransform.identity},
+                        completion:nil
+                    )
+                }
+            }
+          )
         }
         
         
