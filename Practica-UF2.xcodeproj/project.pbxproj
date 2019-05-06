@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		000DA2062280776E00EBA027 /* MusicBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000DA2052280776E00EBA027 /* MusicBackgroundViewController.swift */; };
 		000DA20922807DD100EBA027 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 000DA20822807DD100EBA027 /* AudioToolbox.framework */; };
-		00542A8422809EF300E571A4 /* sound rotated gesture.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 00542A8222809EF300E571A4 /* sound rotated gesture.aiff */; };
-		00542A8522809EF300E571A4 /* spinning image rotated.wav in Resources */ = {isa = PBXBuildFile; fileRef = 00542A8322809EF300E571A4 /* spinning image rotated.wav */; };
-		00542A8722809EF800E571A4 /* earth quake.wav in Resources */ = {isa = PBXBuildFile; fileRef = 00542A8622809EF800E571A4 /* earth quake.wav */; };
 		00542A8922809F4000E571A4 /* soundBackground.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 00542A8822809F4000E571A4 /* soundBackground.mp3 */; };
+		00542A8D2280CF4000E571A4 /* earth quake.wav in Resources */ = {isa = PBXBuildFile; fileRef = 00542A8C2280CF4000E571A4 /* earth quake.wav */; };
+		00542A8F2280D02A00E571A4 /* sound rotated gesture.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 00542A8E2280D02A00E571A4 /* sound rotated gesture.mp3 */; };
+		00542A912280D14200E571A4 /* spinning image rotated.wav in Resources */ = {isa = PBXBuildFile; fileRef = 00542A902280D14200E571A4 /* spinning image rotated.wav */; };
 		3E29B607226F6A0600BD0C19 /* CollectionViewControllerColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E29B606226F6A0600BD0C19 /* CollectionViewControllerColors.swift */; };
 		3E2C4B70226F5D0B0029BD6B /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2C4B6F226F5D0B0029BD6B /* ColorView.swift */; };
 		3E2C4B72226F65630029BD6B /* CollectionViewCellColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2C4B71226F65630029BD6B /* CollectionViewCellColor.swift */; };
@@ -26,10 +26,10 @@
 /* Begin PBXFileReference section */
 		000DA2052280776E00EBA027 /* MusicBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBackgroundViewController.swift; sourceTree = "<group>"; };
 		000DA20822807DD100EBA027 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		00542A8222809EF300E571A4 /* sound rotated gesture.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = "sound rotated gesture.aiff"; path = "../../sound rotated gesture.aiff"; sourceTree = "<group>"; };
-		00542A8322809EF300E571A4 /* spinning image rotated.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "spinning image rotated.wav"; path = "../../spinning image rotated.wav"; sourceTree = "<group>"; };
-		00542A8622809EF800E571A4 /* earth quake.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "earth quake.wav"; path = "../../earth quake.wav"; sourceTree = "<group>"; };
 		00542A8822809F4000E571A4 /* soundBackground.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = soundBackground.mp3; path = ../../soundBackground.mp3; sourceTree = "<group>"; };
+		00542A8C2280CF4000E571A4 /* earth quake.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "earth quake.wav"; path = "../../../Downloads/earth quake.wav"; sourceTree = "<group>"; };
+		00542A8E2280D02A00E571A4 /* sound rotated gesture.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "sound rotated gesture.mp3"; path = "../../../Downloads/sound rotated gesture.mp3"; sourceTree = "<group>"; };
+		00542A902280D14200E571A4 /* spinning image rotated.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "spinning image rotated.wav"; path = "../../../Downloads/spinning image rotated.wav"; sourceTree = "<group>"; };
 		3E29B606226F6A0600BD0C19 /* CollectionViewControllerColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewControllerColors.swift; sourceTree = "<group>"; };
 		3E2C4B6F226F5D0B0029BD6B /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		3E2C4B71226F65630029BD6B /* CollectionViewCellColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellColor.swift; sourceTree = "<group>"; };
@@ -82,10 +82,10 @@
 		3E4CAA1E226F116200D51FD8 /* Practica-UF2 */ = {
 			isa = PBXGroup;
 			children = (
-				00542A8622809EF800E571A4 /* earth quake.wav */,
+				00542A8C2280CF4000E571A4 /* earth quake.wav */,
+				00542A902280D14200E571A4 /* spinning image rotated.wav */,
+				00542A8E2280D02A00E571A4 /* sound rotated gesture.mp3 */,
 				00542A8822809F4000E571A4 /* soundBackground.mp3 */,
-				00542A8222809EF300E571A4 /* sound rotated gesture.aiff */,
-				00542A8322809EF300E571A4 /* spinning image rotated.wav */,
 				3E4CAA1F226F116200D51FD8 /* AppDelegate.swift */,
 				3E4CAA21226F116200D51FD8 /* ViewControllerDrawLines.swift */,
 				3E4CAA23226F116200D51FD8 /* Main.storyboard */,
@@ -158,13 +158,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00542A8D2280CF4000E571A4 /* earth quake.wav in Resources */,
 				3E4CAA2A226F116300D51FD8 /* LaunchScreen.storyboard in Resources */,
-				00542A8422809EF300E571A4 /* sound rotated gesture.aiff in Resources */,
-				00542A8722809EF800E571A4 /* earth quake.wav in Resources */,
+				00542A912280D14200E571A4 /* spinning image rotated.wav in Resources */,
 				3E4CAA27226F116300D51FD8 /* Assets.xcassets in Resources */,
+				00542A8F2280D02A00E571A4 /* sound rotated gesture.mp3 in Resources */,
 				00542A8922809F4000E571A4 /* soundBackground.mp3 in Resources */,
 				3E4CAA25226F116200D51FD8 /* Main.storyboard in Resources */,
-				00542A8522809EF300E571A4 /* spinning image rotated.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

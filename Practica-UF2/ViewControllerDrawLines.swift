@@ -86,7 +86,7 @@ class ViewControllerDrawLines: UIViewController {
             AudioServicesCreateSystemSoundID(soundSwipeURL as CFURL, &soundSwipe)
         }
         
-        if let soundRotateURL = Bundle.main.url(forResource: "sound rotated gesture", withExtension: "wav") {
+        if let soundRotateURL = Bundle.main.url(forResource: "sound rotated gesture", withExtension: "mp3") {
             AudioServicesCreateSystemSoundID(soundRotateURL as CFURL, &soundRotated)
             
         }
