@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000DA2062280776E00EBA027 /* MusicBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000DA2052280776E00EBA027 /* MusicBackgroundViewController.swift */; };
+		000DA20922807DD100EBA027 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 000DA20822807DD100EBA027 /* AudioToolbox.framework */; };
+		000DA2182280808E00EBA027 /* soundBackground.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 000DA2172280808E00EBA027 /* soundBackground.mp3 */; };
 		3E29B607226F6A0600BD0C19 /* CollectionViewControllerColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E29B606226F6A0600BD0C19 /* CollectionViewControllerColors.swift */; };
 		3E2C4B70226F5D0B0029BD6B /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2C4B6F226F5D0B0029BD6B /* ColorView.swift */; };
 		3E2C4B72226F65630029BD6B /* CollectionViewCellColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2C4B71226F65630029BD6B /* CollectionViewCellColor.swift */; };
@@ -18,6 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		000DA2052280776E00EBA027 /* MusicBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBackgroundViewController.swift; sourceTree = "<group>"; };
+		000DA20822807DD100EBA027 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		000DA21322807FEE00EBA027 /* earth quake.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "earth quake.wav"; sourceTree = "<group>"; };
+		000DA21422807FEE00EBA027 /* sound rotated gesture.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "sound rotated gesture.aiff"; sourceTree = "<group>"; };
+		000DA21522807FEE00EBA027 /* spinning image rotated.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "spinning image rotated.wav"; sourceTree = "<group>"; };
+		000DA2172280808E00EBA027 /* soundBackground.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = soundBackground.mp3; path = ../../../../Downloads/soundBackground.mp3; sourceTree = "<group>"; };
 		3E29B606226F6A0600BD0C19 /* CollectionViewControllerColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewControllerColors.swift; sourceTree = "<group>"; };
 		3E2C4B6F226F5D0B0029BD6B /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		3E2C4B71226F65630029BD6B /* CollectionViewCellColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellColor.swift; sourceTree = "<group>"; };
@@ -35,17 +44,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000DA20922807DD100EBA027 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000DA20722807DD000EBA027 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				000DA20822807DD100EBA027 /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		000DA20A22807F9100EBA027 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				000DA2172280808E00EBA027 /* soundBackground.mp3 */,
+				000DA21322807FEE00EBA027 /* earth quake.wav */,
+				000DA21422807FEE00EBA027 /* sound rotated gesture.aiff */,
+				000DA21522807FEE00EBA027 /* spinning image rotated.wav */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		3E4CAA13226F116200D51FD8 = {
 			isa = PBXGroup;
 			children = (
 				3E4CAA1E226F116200D51FD8 /* Practica-UF2 */,
 				3E4CAA1D226F116200D51FD8 /* Products */,
+				000DA20722807DD000EBA027 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +90,7 @@
 		3E4CAA1E226F116200D51FD8 /* Practica-UF2 */ = {
 			isa = PBXGroup;
 			children = (
+				000DA20A22807F9100EBA027 /* Audio */,
 				3E4CAA1F226F116200D51FD8 /* AppDelegate.swift */,
 				3E4CAA21226F116200D51FD8 /* ViewControllerDrawLines.swift */,
 				3E4CAA23226F116200D51FD8 /* Main.storyboard */,
@@ -69,6 +100,7 @@
 				3E2C4B71226F65630029BD6B /* CollectionViewCellColor.swift */,
 				3E2C4B6F226F5D0B0029BD6B /* ColorView.swift */,
 				3E29B606226F6A0600BD0C19 /* CollectionViewControllerColors.swift */,
+				000DA2052280776E00EBA027 /* MusicBackgroundViewController.swift */,
 			);
 			path = "Practica-UF2";
 			sourceTree = "<group>";
@@ -133,6 +165,7 @@
 			files = (
 				3E4CAA2A226F116300D51FD8 /* LaunchScreen.storyboard in Resources */,
 				3E4CAA27226F116300D51FD8 /* Assets.xcassets in Resources */,
+				000DA2182280808E00EBA027 /* soundBackground.mp3 in Resources */,
 				3E4CAA25226F116200D51FD8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +179,7 @@
 			files = (
 				3E29B607226F6A0600BD0C19 /* CollectionViewControllerColors.swift in Sources */,
 				3E4CAA22226F116200D51FD8 /* ViewControllerDrawLines.swift in Sources */,
+				000DA2062280776E00EBA027 /* MusicBackgroundViewController.swift in Sources */,
 				3E4CAA20226F116200D51FD8 /* AppDelegate.swift in Sources */,
 				3E2C4B72226F65630029BD6B /* CollectionViewCellColor.swift in Sources */,
 				3E2C4B70226F5D0B0029BD6B /* ColorView.swift in Sources */,
