@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class ViewControllerDrawLines: UIViewController {
     
     var backgroundColor: ColorView?
+    
+    var soundSwipe:SystemSoundID = 0
+    var soundRotated:SystemSoundID = 0
+    var soundShake :SystemSoundID = 0
     
     @IBOutlet weak var imageDrawingPlace: ColorView!
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
@@ -51,7 +56,7 @@ class ViewControllerDrawLines: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadSounds()
         if let currentBackgorundColor = backgroundColor {
             currentBackgorundColor.createGradientLayer(viewColor: imageDrawingPlace)
 //          Add Gesture recognizer
@@ -72,47 +77,42 @@ class ViewControllerDrawLines: UIViewController {
         }
     }
     
+    private func loadSounds() {
+        if let soundShakeURL = Bundle.main.url(forResource: "earth quake", withExtension: "wav") {
+            AudioServicesCreateSystemSoundID(soundShakeURL as CFURL, &soundShake)
+        }
+        
+        if let soundSwipeURL = Bundle.main.url(forResource: "spinning image rotated", withExtension: "wav") {
+            AudioServicesCreateSystemSoundID(soundSwipeURL as CFURL, &soundSwipe)
+        }
+        
+        if let soundRotateURL = Bundle.main.url(forResource: "sound rotated gesture", withExtension: "wav") {
+            AudioServicesCreateSystemSoundID(soundRotateURL as CFURL, &soundRotated)
+            
+        }
+    }
+    
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         switch motion {
         case .motionShake:
-            let shakeAnimation = UIViewPropertyAnimator.runningPropertyAnimator(
-                    withDuration: 5,
-                    delay: 0,
-                    options: UIView.AnimationOptions.curveEaseInOut,
-                    animations: {
-                        self.imageDrawingPlace.center = CGPoint(x: self.imageDrawingPlace.center.x - 10, y: self.imageDrawingPlace.center.y)
-                        
-                        self.imageDrawingPlace.alpha = 0
-                    },
-                    completion: {
-//                        self.imageDrawingPlace.removeFromSuperview()
-                        if $0 == .end{
-                            UIViewPropertyAnimator.runningPropertyAnimator(
-                                withDuration: 5,
-                                delay: 0,
-                                options: UIView.AnimationOptions.curveEaseInOut,
-                                animations: {
-                                    self.imageDrawingPlace.alpha = 1
-                                    self.imageDrawingPlace.center = CGPoint(x: self.imageDrawingPlace.center.x, y: self.imageDrawingPlace.center.y)
-                                },
-                                completion: nil
-                            )
-                        }
-                    }
-            )
-            
+            AudioServicesPlaySystemSound(soundShake)
+            let shakeAnimation = CABasicAnimation(keyPath: "position")
+            shakeAnimation.duration = 0.07
+            shakeAnimation.repeatCount = 50
+            shakeAnimation.autoreverses = true
+            shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: self.imageDrawingPlace.center.x - 10, y: self.imageDrawingPlace.center.y))
+            shakeAnimation.toValue = NSValue(cgPoint: CGPoint(x: self.imageDrawingPlace.center.x + 10, y: self.imageDrawingPlace.center.y))
+            imageDrawingPlace.layer.add(shakeAnimation, forKey: "position")
 //            shakeAnimation.addAnimations {
 //                self.imageDrawingPlace.center = CGPoint(x: self.imageDrawingPlace.center.x + 20, y: self.imageDrawingPlace.center.y)
 //            }
-            
-            shakeAnimation.startAnimation()
-            
         default:
             break
         }
     }
         
     @objc func rotationGesture() {
+        AudioServicesPlaySystemSound(soundRotated)
         UIViewPropertyAnimator.runningPropertyAnimator(
             withDuration: 4,
             delay: 0,
@@ -136,10 +136,11 @@ class ViewControllerDrawLines: UIViewController {
         
         
     @objc func swipeGesture(_ sender: UISwipeGestureRecognizer) {
-            UIViewPropertyAnimator.runningPropertyAnimator(
+        AudioServicesPlaySystemSound(soundSwipe)
+            let animation = UIViewPropertyAnimator.runningPropertyAnimator(
                 withDuration: 1,
                 delay: 0,
-                options: UIView.AnimationOptions.curveLinear,
+                options: [.repeat, .autoreverse, .beginFromCurrentState],
                 animations: {
                     self.imageDrawingPlace.transform = CGAffineTransform(scaleX: -1, y: 1)
                 },
@@ -153,6 +154,8 @@ class ViewControllerDrawLines: UIViewController {
                             completion:nil
                         ) }
             })
+        
+        animation.startAnimation()
         }
 }
 
