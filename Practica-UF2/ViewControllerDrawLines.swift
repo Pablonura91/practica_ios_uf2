@@ -13,9 +13,13 @@ class ViewControllerDrawLines: UIViewController {
     
     var backgroundColor: ColorView?
     
+    @IBOutlet weak var gestureMessage: UILabel!
+    
     var soundSwipe:SystemSoundID = 0
     var soundRotated:SystemSoundID = 0
     var soundShake :SystemSoundID = 0
+    var stepNumber = 0
+    let gesturesMessage = ["Shake me!", "Swipe me!", "Rotated me!"]
     
     @IBOutlet weak var imageDrawingPlace: ColorView!
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
@@ -75,6 +79,9 @@ class ViewControllerDrawLines: UIViewController {
             
             imageDrawingPlace.addGestureRecognizer(rotationGestureRecognizer)
         }
+        //initialize timer
+        let dislayLink = CADisplayLink(target: self, selector: #selector(self.updateScene))
+        dislayLink.add(to: .current, forMode: .default)
     }
     
     private func loadSounds() {
@@ -157,5 +164,16 @@ class ViewControllerDrawLines: UIViewController {
         
         animation.startAnimation()
         }
+    
+    @objc func updateScene(){
+        if (stepNumber%(60*5)==0){
+            addMessage()
+        }
+        stepNumber+=1
+    }
+    
+    private func addMessage(){
+        gestureMessage.text = gesturesMessage[Int.random(in: 0 ... 2)]
+    }
 }
 
