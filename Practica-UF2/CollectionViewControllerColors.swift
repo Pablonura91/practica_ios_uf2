@@ -9,8 +9,8 @@
 import UIKit
 
 class CollectionViewControllerColors: UICollectionViewController {
-    var colorsArr: [ColorView] = ([ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))])
-    
+//    var colorsArr: [ColorView] = ([ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))])
+    var colorsArr: [ColorView] = [ColorView]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,14 +31,16 @@ class CollectionViewControllerColors: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return colorsArr.count
+        return 8
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCellColor
-        colorsArr[indexPath.row].createGradientLayer(viewColor: cell.imageColorView)
+        cell.imageColorView.createGradientLayer2()
 //        createGradientLayer(color: colors[indexPath.item], viewColor: cell.imageColorView)
-    
+        
+        colorsArr.append(cell.imageColorView)
+        
         return cell
     }
 
@@ -51,7 +53,8 @@ class CollectionViewControllerColors: UICollectionViewController {
                     let targetController = destinationNavigationController.topViewController as? ViewControllerDrawLines {
                     
 //                        createGradientLayer(color: colors[indexPath.row], viewColor: targetController.view)
-                        targetController.backgroundColor = colorsArr[indexPath.row]
+                    targetController.backgroundColor = colorsArr[indexPath.row]
+                
                 }
             }
         }
