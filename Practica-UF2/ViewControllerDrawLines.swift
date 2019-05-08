@@ -19,6 +19,7 @@ class ViewControllerDrawLines: UIViewController {
     var soundRotated:SystemSoundID = 0
     var soundShake :SystemSoundID = 0
     var stepNumber = 0
+    var timer = Timer()
     let gesturesMessage = ["Shake me!", "Swipe me!", "Rotated me!"]
     
     @IBOutlet weak var imageDrawingPlace: ColorView!
@@ -80,8 +81,7 @@ class ViewControllerDrawLines: UIViewController {
             imageDrawingPlace.addGestureRecognizer(rotationGestureRecognizer)
         }
         //initialize timer
-        let dislayLink = CADisplayLink(target: self, selector: #selector(self.updateScene))
-        dislayLink.add(to: .current, forMode: .default)
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.updateScene), userInfo: nil, repeats: true)
     }
     
     private func loadSounds() {
@@ -166,10 +166,7 @@ class ViewControllerDrawLines: UIViewController {
         }
     
     @objc func updateScene(){
-        if (stepNumber%(60*5)==0){
-            addMessage()
-        }
-        stepNumber+=1
+        addMessage()
     }
     
     private func addMessage(){
