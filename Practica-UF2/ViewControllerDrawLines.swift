@@ -23,6 +23,19 @@ class ViewControllerDrawLines: UIViewController {
     let gesturesMessage = ["Shake me!", "Swipe me!", "Rotated me!"]
     
     @IBOutlet weak var imageDrawingPlace: ColorView!
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        if (size.width > self.view.frame.size.width) {
+            //let y = imageDrawingPlace.center.y
+            //let x = imageDrawingPlace.center.x
+            self.imageDrawingPlace.frame.size = CGSize(width: 200, height: 100)
+            
+        } else {
+            self.imageDrawingPlace.center = CGPoint (x: imageDrawingPlace.center.x, y: imageDrawingPlace.center.y)
+        }
+    }
+    
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
         UIViewPropertyAnimator.runningPropertyAnimator(
             withDuration: 6.0,
