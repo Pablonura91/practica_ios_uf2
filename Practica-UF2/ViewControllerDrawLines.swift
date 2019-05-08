@@ -27,12 +27,26 @@ class ViewControllerDrawLines: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         if (size.width > self.view.frame.size.width) {
-            //let y = imageDrawingPlace.center.y
-            //let x = imageDrawingPlace.center.x
-            self.imageDrawingPlace.frame.size = CGSize(width: 200, height: 100)
             
+            UIViewPropertyAnimator.runningPropertyAnimator(
+                withDuration: 3.0,
+                delay: 0,
+                options: .curveEaseOut,
+                animations: {
+                    let transform = CGAffineTransform(scaleX: -1.0, y: -1.0)
+                    self.imageDrawingPlace.transform=transform
+                    
+                },
+                completion: nil
+            )
         } else {
-            self.imageDrawingPlace.center = CGPoint (x: imageDrawingPlace.center.x, y: imageDrawingPlace.center.y)
+            UIViewPropertyAnimator.runningPropertyAnimator(
+                withDuration: 2,
+                delay: 0,
+                options: UIView.AnimationOptions.curveEaseInOut,
+                animations: {self.imageDrawingPlace.transform = CGAffineTransform.identity},
+                completion: nil
+            )
         }
     }
     
