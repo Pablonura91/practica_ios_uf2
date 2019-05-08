@@ -33,8 +33,8 @@ class ViewControllerDrawLines: UIViewController {
                 delay: 0,
                 options: .curveEaseOut,
                 animations: {
-                    let transform = CGAffineTransform(scaleX: -1.0, y: -1.0)
-                    self.imageDrawingPlace.transform=transform
+                    let center = CGSize(width: 0, height: 0)
+                    self.imageDrawingPlace.frame.size = center
                     
                 },
                 completion: nil
