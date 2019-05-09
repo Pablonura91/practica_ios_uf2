@@ -51,9 +51,7 @@ class CollectionViewControllerColors: UICollectionViewController {
             {
                 if let destinationNavigationController = segue.destination as? UINavigationController,
                     let targetController = destinationNavigationController.topViewController as? ViewControllerDrawLines {
-                    
-//                        createGradientLayer(color: colors[indexPath.row], viewColor: targetController.view)
-                    targetController.backgroundColor = colorsArr[indexPath.row]
+                    targetController.backgroundColors = colorsArr[indexPath.row].colorsGradient
                 
                 }
             }

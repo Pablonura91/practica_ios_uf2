@@ -21,6 +21,7 @@
 		3EDD30B22281BCAD003D019B /* earth quake.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3EDD30AE2281BCAD003D019B /* earth quake.wav */; };
 		3EDD30B32281BCAD003D019B /* sound rotated gesture.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EDD30AF2281BCAD003D019B /* sound rotated gesture.mp3 */; };
 		3EDD30B42281BCAD003D019B /* soundBackground.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EDD30B02281BCAD003D019B /* soundBackground.mp3 */; };
+		3EDD30B6228464E2003D019B /* SingletonMusicOnBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD30B5228464E2003D019B /* SingletonMusicOnBackground.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		3EDD30AE2281BCAD003D019B /* earth quake.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "earth quake.wav"; sourceTree = "<group>"; };
 		3EDD30AF2281BCAD003D019B /* sound rotated gesture.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound rotated gesture.mp3"; sourceTree = "<group>"; };
 		3EDD30B02281BCAD003D019B /* soundBackground.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundBackground.mp3; sourceTree = "<group>"; };
+		3EDD30B5228464E2003D019B /* SingletonMusicOnBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonMusicOnBackground.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				3E2C4B6F226F5D0B0029BD6B /* ColorView.swift */,
 				3E29B606226F6A0600BD0C19 /* CollectionViewControllerColors.swift */,
 				000DA2052280776E00EBA027 /* MusicBackgroundViewController.swift */,
+				3EDD30B5228464E2003D019B /* SingletonMusicOnBackground.swift */,
 			);
 			path = "Practica-UF2";
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				000DA2062280776E00EBA027 /* MusicBackgroundViewController.swift in Sources */,
 				3E4CAA20226F116200D51FD8 /* AppDelegate.swift in Sources */,
 				3E2C4B72226F65630029BD6B /* CollectionViewCellColor.swift in Sources */,
+				3EDD30B6228464E2003D019B /* SingletonMusicOnBackground.swift in Sources */,
 				3E2C4B70226F5D0B0029BD6B /* ColorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

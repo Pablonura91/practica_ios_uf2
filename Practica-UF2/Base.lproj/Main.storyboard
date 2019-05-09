@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SJZ-ON-Pyh">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -82,7 +82,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="198"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPM-1c-zUU" customClass="ColorView" customModule="Practica_UF2" customModuleProvider="target">
+                                        <view contentMode="left" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPM-1c-zUU" customClass="ColorView" customModule="Practica_UF2" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="198"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -91,7 +91,7 @@
                                                     <point key="value" x="0.0" y="0.0"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="size" keyPath="sizeImage">
-                                                    <size key="value" width="150" height="150"/>
+                                                    <size key="value" width="0.0" height="0.0"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
@@ -123,37 +123,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="v99-ng-L6p" customClass="ColorView" customModule="Practica_UF2" customModuleProvider="target">
-                                <rect key="frame" x="7" y="96" width="398" height="538"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="point" keyPath="positionView">
-                                        <point key="value" x="0.0" y="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="844-HM-txP" appends="YES" id="KDl-7y-DsT"/>
-                                </connections>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIx-at-mpd">
-                                <rect key="frame" x="150" y="676" width="114" height="0.0"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="UK9-IQ-pD9">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <view contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="v99-ng-L6p" customClass="ColorView" customModule="Practica_UF2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="635"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="point" keyPath="positionView">
+                                                <point key="value" x="0.0" y="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="sizeImage">
+                                                <size key="value" width="0.0" height="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="844-HM-txP" appends="YES" id="KDl-7y-DsT"/>
+                                        </connections>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIx-at-mpd">
+                                        <rect key="frame" x="150" y="677" width="114" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="gk4-37-NPJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="114" id="ZXX-tR-5iH"/>
+                                    <constraint firstItem="mIx-at-mpd" firstAttribute="top" secondItem="v99-ng-L6p" secondAttribute="bottom" constant="42" id="2Zw-uu-lbH"/>
+                                    <constraint firstAttribute="trailing" secondItem="mIx-at-mpd" secondAttribute="trailing" constant="150" id="QFb-By-OYe"/>
+                                    <constraint firstAttribute="trailing" secondItem="v99-ng-L6p" secondAttribute="trailing" id="WX0-CJ-fKU"/>
+                                    <constraint firstItem="v99-ng-L6p" firstAttribute="leading" secondItem="UK9-IQ-pD9" secondAttribute="leading" id="cm2-g9-n5R"/>
+                                    <constraint firstItem="v99-ng-L6p" firstAttribute="top" secondItem="UK9-IQ-pD9" secondAttribute="top" id="ei3-QF-Zo5"/>
+                                    <constraint firstItem="mIx-at-mpd" firstAttribute="leading" secondItem="UK9-IQ-pD9" secondAttribute="leading" constant="150" id="pjK-4C-fJX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mIx-at-mpd" secondAttribute="bottom" constant="137" id="9j7-mq-Cwl"/>
-                            <constraint firstItem="v99-ng-L6p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="7" id="frY-fe-igo"/>
-                            <constraint firstItem="mIx-at-mpd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lF9-ks-HyH"/>
-                            <constraint firstItem="v99-ng-L6p" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="vhb-lV-vUR"/>
-                            <constraint firstItem="mIx-at-mpd" firstAttribute="top" secondItem="v99-ng-L6p" secondAttribute="bottom" constant="42" id="x8A-5g-eQw"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v99-ng-L6p" secondAttribute="trailing" constant="9" id="zTO-U1-O6n"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UK9-IQ-pD9" secondAttribute="bottom" id="8Zz-LN-08x"/>
+                            <constraint firstItem="UK9-IQ-pD9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="JQn-IB-1oa"/>
+                            <constraint firstItem="UK9-IQ-pD9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KwX-lD-T3Y"/>
+                            <constraint firstItem="UK9-IQ-pD9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h8O-8e-xVE"/>
+                            <constraint firstItem="UK9-IQ-pD9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hDD-sJ-UKe"/>
+                            <constraint firstItem="UK9-IQ-pD9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hkS-ek-X7t"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mIx-at-mpd" secondAttribute="bottom" id="sPs-g2-jr7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UK9-IQ-pD9" secondAttribute="trailing" id="u4W-4y-dVz"/>
+                            <constraint firstItem="UK9-IQ-pD9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yfu-wB-UCf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

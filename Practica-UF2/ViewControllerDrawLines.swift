@@ -11,16 +11,17 @@ import AudioToolbox
 
 class ViewControllerDrawLines: UIViewController {
     
-    var backgroundColor: ColorView?
+    var backgroundColors: [UIColor]?
     
     @IBOutlet weak var gestureMessage: UILabel!
     
-    var soundSwipe:SystemSoundID = 0
-    var soundRotated:SystemSoundID = 0
-    var soundShake :SystemSoundID = 0
-    var stepNumber = 0
-    var timer = Timer()
-    let gesturesMessage = ["Shake me!", "Swipe me!", "Rotated me!"]
+    private var soundSwipe:SystemSoundID = 0
+    private var soundRotated:SystemSoundID = 0
+    private var soundShake :SystemSoundID = 0
+    private var stepNumber = 0
+    private var timer = Timer()
+    private let gesturesMessage = ["Shake me!", "Swipe me!", "Rotated me!"]
+    private let singletonMusicBackground = SingletonMusicOnBackground.sharedInstance
     
     @IBOutlet weak var imageDrawingPlace: ColorView!
     
@@ -28,25 +29,25 @@ class ViewControllerDrawLines: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         if (size.width > self.view.frame.size.width) {
             
-            UIViewPropertyAnimator.runningPropertyAnimator(
-                withDuration: 3.0,
-                delay: 0,
-                options: .curveEaseOut,
-                animations: {
-                    let center = CGSize(width: 0, height: 0)
-                    self.imageDrawingPlace.frame.size = center
-                    
-                },
-                completion: nil
-            )
+//            UIViewPropertyAnimator.runningPropertyAnimator(
+//                withDuration: 3.0,
+//                delay: 0,
+//                options: .curveEaseOut,
+//                animations: {
+//                    let center = CGSize(width: self.imageDrawingPlace.frame.height, height: self.imageDrawingPlace.frame.width)
+//                    self.imageDrawingPlace.frame.size = center
+//
+//                },
+//                completion: nil
+//            )
         } else {
-            UIViewPropertyAnimator.runningPropertyAnimator(
-                withDuration: 2,
-                delay: 0,
-                options: UIView.AnimationOptions.curveEaseInOut,
-                animations: {self.imageDrawingPlace.transform = CGAffineTransform.identity},
-                completion: nil
-            )
+//            UIViewPropertyAnimator.runningPropertyAnimator(
+//                withDuration: 2,
+//                delay: 0,
+//                options: UIView.AnimationOptions.curveEaseInOut,
+//                animations: {self.imageDrawingPlace.transform = CGAffineTransform.identity},
+//                completion: nil
+//            )
         }
     }
     
@@ -77,20 +78,18 @@ class ViewControllerDrawLines: UIViewController {
                                     options: UIView.AnimationOptions.curveEaseInOut,
                                     animations: {self.imageDrawingPlace.transform = CGAffineTransform.identity},
                                     completion:nil
-                                )
-                            }
-                        }
-                    )
-                }
+                            )}
+                    }
+                )}
             }
         )
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSounds()
-        if let currentBackgorundColor = backgroundColor {
-            currentBackgorundColor.createGradientLayer(viewColor: imageDrawingPlace)
+        
+        if let currentBackgorundColor = backgroundColors {
+            self.imageDrawingPlace.createGradientLayer(colors: currentBackgorundColor)
 //          Add Gesture recognizer
             let swipeGestureRecognizer = UISwipeGestureRecognizer(
                 target: self,
@@ -109,6 +108,9 @@ class ViewControllerDrawLines: UIViewController {
         }
         //initialize timer
         timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.updateScene), userInfo: nil, repeats: true)
+        
+        
+        loadSounds()
     }
     
     private func loadSounds() {
@@ -127,6 +129,9 @@ class ViewControllerDrawLines: UIViewController {
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if singletonMusicBackground.isPlaying() {
+            singletonMusicBackground.pause()
+        }
         switch motion {
         case .motionShake:
             AudioServicesPlaySystemSound(soundShake)
@@ -143,9 +148,15 @@ class ViewControllerDrawLines: UIViewController {
         default:
             break
         }
+        if singletonMusicBackground.isPlaying() {
+            singletonMusicBackground.play()
+        }
     }
         
     @objc func rotationGesture() {
+        if singletonMusicBackground.isPlaying() {
+            singletonMusicBackground.pause()
+        }
         AudioServicesPlaySystemSound(soundRotated)
         UIViewPropertyAnimator.runningPropertyAnimator(
             withDuration: 4,
@@ -161,7 +172,13 @@ class ViewControllerDrawLines: UIViewController {
                         delay: 0,
                         options: UIView.AnimationOptions.curveEaseInOut,
                         animations: {self.imageDrawingPlace.transform = CGAffineTransform.identity},
-                        completion:nil
+                        completion: {
+                            if $0 == .end{
+                                if !self.singletonMusicBackground.isPlaying() {
+                                    self.singletonMusicBackground.play()
+                                }
+                            }
+                        }
                     )
                 }
             }
@@ -170,6 +187,9 @@ class ViewControllerDrawLines: UIViewController {
         
         
     @objc func swipeGesture(_ sender: UISwipeGestureRecognizer) {
+        if singletonMusicBackground.isPlaying() {
+            singletonMusicBackground.pause()
+        }
         AudioServicesPlaySystemSound(soundSwipe)
             let animation = UIViewPropertyAnimator.runningPropertyAnimator(
                 withDuration: 1,
@@ -185,7 +205,13 @@ class ViewControllerDrawLines: UIViewController {
                             delay: 0,
                             options: UIView.AnimationOptions.curveEaseInOut,
                             animations: {self.imageDrawingPlace.transform = CGAffineTransform.identity},
-                            completion:nil
+                            completion: {
+                                if $0 == .end {
+                                    if !self.singletonMusicBackground.isPlaying() {
+                                        self.singletonMusicBackground.play()
+                                    }
+                                }
+                        }
                         ) }
             })
         

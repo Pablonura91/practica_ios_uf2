@@ -18,25 +18,7 @@ class MusicBackgroundViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        do {
-            try AVAudioSession.sharedInstance().setActive(true)
-        }catch {
-            print("Settings")
-        }
-        
-        if let backgroundURL = Bundle.main.url(forResource: "soundBackground", withExtension: "mp3") {
-        do {
-            try backgroundAudioPlayer = AVAudioPlayer(contentsOf: backgroundURL)
-            if let player = backgroundAudioPlayer {
-                player.numberOfLoops = Int(-1)
-                player.prepareToPlay()
-                //player.play()
-            }
-        } catch {
-            print("Negro")
-        }
-            
+        SingletonMusicOnBackground.sharedInstance.create()
         checkStatusMusic()
             
         // Do any additional setup after loading the view.
@@ -46,28 +28,25 @@ class MusicBackgroundViewController: UIViewController {
             )
             
             musicStatus.addGestureRecognizer(tapGestureRecognizer)
-        }
     }
     
     @objc private func playMusic() {
-        if let player = backgroundAudioPlayer {
-            if player.isPlaying {
-                player.pause()
+        let singletonMusicOnBackground = SingletonMusicOnBackground.sharedInstance
+            if singletonMusicOnBackground.isPlaying(){
+                singletonMusicOnBackground.pause()
             } else {
-                player.play()
+                singletonMusicOnBackground.play()
             }
             checkStatusMusic()
-        }
     }
     
     private func checkStatusMusic() {
-        if let player = backgroundAudioPlayer {
-            if player.isPlaying {
+        let player = SingletonMusicOnBackground.sharedInstance
+            if player.isPlaying() {
                 musicStatus.image = UIImage(named: "musicOn")
             }else {
                 musicStatus.image = UIImage(named: "mute")
             }
-        }
     }
     
 
