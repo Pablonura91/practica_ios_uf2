@@ -27,62 +27,7 @@ class ViewControllerDrawLines: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        if (size.width > self.view.frame.size.width) {
-            
-//            UIViewPropertyAnimator.runningPropertyAnimator(
-//                withDuration: 3.0,
-//                delay: 0,
-//                options: .curveEaseOut,
-//                animations: {
-//                    let center = CGSize(width: self.imageDrawingPlace.frame.height, height: self.imageDrawingPlace.frame.width)
-//                    self.imageDrawingPlace.frame.size = center
-//
-//                },
-//                completion: nil
-//            )
-        } else {
-//            UIViewPropertyAnimator.runningPropertyAnimator(
-//                withDuration: 2,
-//                delay: 0,
-//                options: UIView.AnimationOptions.curveEaseInOut,
-//                animations: {self.imageDrawingPlace.transform = CGAffineTransform.identity},
-//                completion: nil
-//            )
-        }
-    }
-    
-    @IBAction func tap(_ sender: UITapGestureRecognizer) {
-        UIViewPropertyAnimator.runningPropertyAnimator(
-            withDuration: 6.0,
-            delay: 0,
-            options: .curveEaseOut,
-            animations: {
-                var transform = CGAffineTransform(
-                    translationX: self.imageDrawingPlace.frame.width-self.imageDrawingPlace.frame.width,
-                    y: 0)
-                transform = transform.rotated(by: CGFloat(180*Double.pi/180))
-                self.imageDrawingPlace.transform=transform
-
-            },
-            completion: {if $0 == .end{
-                    UIViewPropertyAnimator.runningPropertyAnimator(
-                        withDuration: 5,
-                        delay: 0,
-                        options: UIView.AnimationOptions.curveEaseInOut,
-                        animations: {self.imageDrawingPlace.transform = CGAffineTransform(scaleX: -20, y: 10)},
-                        completion: {
-                            if $0 == .end{
-                                UIViewPropertyAnimator.runningPropertyAnimator(
-                                    withDuration: 5,
-                                    delay: 0,
-                                    options: UIView.AnimationOptions.curveEaseInOut,
-                                    animations: {self.imageDrawingPlace.transform = CGAffineTransform.identity},
-                                    completion:nil
-                            )}
-                    }
-                )}
-            }
-        )
+        self.imageDrawingPlace.center = CGPoint(x: self.view.frame.midY, y: self.view.frame.midX)
     }
     
     override func viewDidLoad() {

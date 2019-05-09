@@ -9,8 +9,8 @@
 import UIKit
 
 class CollectionViewControllerColors: UICollectionViewController {
-//    var colorsArr: [ColorView] = ([ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)), ColorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))])
-    var colorsArr: [ColorView] = [ColorView]()
+    private var colorsArr: [ColorView] = [ColorView]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

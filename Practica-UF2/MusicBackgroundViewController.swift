@@ -13,7 +13,7 @@ class MusicBackgroundViewController: UIViewController {
     
     @IBOutlet weak var musicStatus: UIImageView!
     
-    var backgroundAudioPlayer:AVAudioPlayer?
+    private var backgroundAudioPlayer:AVAudioPlayer?
     
 
     override func viewDidLoad() {
