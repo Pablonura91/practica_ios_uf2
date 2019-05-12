@@ -9,7 +9,7 @@
 import UIKit
 import AudioToolbox
 
-class ViewControllerDrawLines: UIViewController {
+class ViewControllerDrawLines: UIViewController, CAAnimationDelegate {
     
     var backgroundColors: [UIColor]?
     
@@ -22,6 +22,7 @@ class ViewControllerDrawLines: UIViewController {
     private var timer = Timer()
     private let gesturesMessage = ["Shake me!", "Swipe me!", "Rotated me!"]
     private let singletonMusicBackground = SingletonMusicOnBackground.sharedInstance
+    let delegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var imageDrawingPlace: ColorView!
     
@@ -81,6 +82,7 @@ class ViewControllerDrawLines: UIViewController {
         case .motionShake:
             AudioServicesPlaySystemSound(soundShake)
             let shakeAnimation = CABasicAnimation(keyPath: "position")
+            shakeAnimation.delegate = self
             shakeAnimation.duration = 0.07
             shakeAnimation.repeatCount = 50
             shakeAnimation.autoreverses = true
@@ -93,8 +95,14 @@ class ViewControllerDrawLines: UIViewController {
         default:
             break
         }
-        if singletonMusicBackground.isPlaying() {
+    }
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        if flag {
+        if !singletonMusicBackground.isPlaying() && !self.delegate.muted{
             singletonMusicBackground.play()
+            
+            }
         }
     }
         
@@ -119,7 +127,7 @@ class ViewControllerDrawLines: UIViewController {
                         animations: {self.imageDrawingPlace.transform = CGAffineTransform.identity},
                         completion: {
                             if $0 == .end{
-                                if !self.singletonMusicBackground.isPlaying() {
+                                if !self.singletonMusicBackground.isPlaying() && !self.delegate.muted{
                                     self.singletonMusicBackground.play()
                                 }
                             }
@@ -152,7 +160,7 @@ class ViewControllerDrawLines: UIViewController {
                             animations: {self.imageDrawingPlace.transform = CGAffineTransform.identity},
                             completion: {
                                 if $0 == .end {
-                                    if !self.singletonMusicBackground.isPlaying() {
+                                    if !self.singletonMusicBackground.isPlaying() && !self.delegate.muted{
                                         self.singletonMusicBackground.play()
                                     }
                                 }

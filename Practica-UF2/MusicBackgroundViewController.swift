@@ -15,6 +15,8 @@ class MusicBackgroundViewController: UIViewController {
     
     private var backgroundAudioPlayer:AVAudioPlayer?
     
+    let delegate = UIApplication.shared.delegate as! AppDelegate
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +46,11 @@ class MusicBackgroundViewController: UIViewController {
         let player = SingletonMusicOnBackground.sharedInstance
             if player.isPlaying() {
                 musicStatus.image = UIImage(named: "musicOn")
+                delegate.muted = false
+                
             }else {
                 musicStatus.image = UIImage(named: "mute")
+                delegate.muted = true
             }
     }
     

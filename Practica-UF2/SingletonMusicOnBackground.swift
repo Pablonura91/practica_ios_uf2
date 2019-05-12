@@ -17,7 +17,7 @@ class SingletonMusicOnBackground {
         do {
             try AVAudioSession.sharedInstance().setActive(true)
         }catch {
-            print("Settings")
+        
         }
         
         if let backgroundURL = Bundle.main.url(forResource: "soundBackground", withExtension: "mp3") {
@@ -28,7 +28,7 @@ class SingletonMusicOnBackground {
                 //player.play()
                 
             } catch {
-                print("Negro")
+            
             }
         }
     }
@@ -38,7 +38,10 @@ class SingletonMusicOnBackground {
     }
         
     func isPlaying() -> Bool{
-        return player?.isPlaying ?? false
+        if let currentPlayer = player {
+            return currentPlayer.isPlaying
+        }
+        return false
     }
     
     func pause() {
